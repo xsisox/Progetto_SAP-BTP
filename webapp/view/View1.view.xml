@@ -1,0 +1,81 @@
+<mvc:View controllerName="project6.project6.controller.View1" xmlns="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns:c="sap.ui.core" xmlns:m="sap.m">
+    <m:Page showHeader="false" enableScrolling="false" class="sapUiContentPadding">
+        <m:content>
+            <Table id="table" selectionMode="None" alternateRowColors="true" 
+            rows="{path:'listaClienti>/'}" enableSelectAll="true" visibleRowCount="20" ariaLabelledBy="title">
+                <toolbar>
+                    <m:OverflowToolbar>
+                        <m:Title id="title" text="Lista Clienti" />
+                        <m:ToolbarSpacer />
+                        
+                        <m:SearchField placeholder="Filter" id="sfield" search="filtraTutto" width="15rem" />
+                    </m:OverflowToolbar>
+                </toolbar>
+
+                <columns>
+                    <Column id="idClienti" width="5rem" sortProperty="idClienti">
+                        <m:Label text="ID Cliente" design="Bold"/>
+                        <template>
+                            <m:Text text="{listaClienti>id}" wrapping="false" />
+                        </template>
+                    </Column>
+                    <Column id="nameCognome" width="9rem" sortProperty="nameCognome">
+                        <m:Label text="Nome Cognome" design="Bold" />
+                        <template>
+                            <m:Text text="{listaClienti>nome}" wrapping="false" />
+                        </template>
+                    </Column>
+
+                    <Column id="ragioneSociale" width="9rem" sortProperty="ragioneSociale">
+                        <m:Label text="Ragione Sociale" design="Bold" />
+                        <template>
+                            <m:Text text="{listaClienti>ragiones}" wrapping="false" />
+                        </template>
+                    </Column>
+
+                    <Column id="telefono" width="9rem">
+                        <m:Label text="Telefono" design="Bold" />
+                        <template>
+                            <m:Text text="{listaClienti>tel}" wrapping="false" />
+                        </template>
+                    </Column>
+
+                    <Column id="email" width="9rem">
+                        <m:Label text="Email" design="Bold" />
+                        <template>
+                            <m:Text text="{listaClienti>email}" wrapping="false" />
+                        </template>
+                    </Column>
+
+                    <Column id="fatturato" width="9rem" sortProperty="fatturato">
+                        <m:Label text="Fatturato" design="Bold" />
+                        <template>
+                            <m:Text text="{listaClienti>fatturato}" wrapping="false" />
+                        </template>
+                    </Column>
+
+                    <Column id="pIva" width="9rem">
+                        <m:Label text="p. Iva" design="Bold" />
+                        <template>
+                            <m:Text text="{listaClienti>piva}" wrapping="false" />
+                        </template>
+                    </Column>
+
+                    <Column id="citta" width="8rem">
+                        <m:Label text="Città" design="Bold" />
+                        <template>
+                            <m:Text text="{listaClienti>citta}" wrapping="false" />
+                        </template>
+                    </Column>
+
+                    <Column id="bottone" width="5rem">
+                        <m:Label text="" />
+                        <template>
+                            <m:Button icon="sap-icon://open-command-field" id="dettagli" press="onPress" />
+                        </template>
+                    </Column>
+                </columns>
+            </Table>
+        </m:content>
+    </m:Page>
+</mvc:View>

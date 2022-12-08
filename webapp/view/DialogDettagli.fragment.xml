@@ -1,0 +1,108 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:m="sap.ui.table" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form">
+    <Dialog id="dettagliOrdine" title="Dettagli ordine">
+        <IconTabBar id="idIconTabBarMulti" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+            <items>
+                <IconTabFilter icon="sap-icon://cart-approval" iconColor="Critical">
+                    <m:Table id="table1" selectionMode="None" width="100%" alternateRowColors="true" rows="{
+					path:'infoOrdine>/',
+					sorter:{
+						path: 'descrizione',
+					descending: true
+					}
+					}" enableSelectAll="true" visibleRowCount="20" ariaLabelledBy="title">
+                        <m:columns>
+                            <m:Column id="descrizione" sortProperty="descrizione">
+                                <Label text="Descrizione" design="Bold"/>
+                                <m:template>
+                                    <Text text="{infoOrdine>descrizione}" wrapping="false" />
+                                </m:template>
+                            </m:Column>
+                            <m:Column id="punitario">
+                                <Label text="Prezzo Unitario" design="Bold"/>
+                                <m:template>
+                                    <Text text="{infoOrdine>punitario}" wrapping="false" />
+                                </m:template>
+                            </m:Column>
+
+                            <m:Column id="quantita1">
+                                <Label text="Quantità" design="Bold" />
+                                <m:template>
+                                    <Text text="{infoOrdine>quantita1}" wrapping="false" />
+                                </m:template>
+                            </m:Column>
+
+                            <m:Column id="pxq">
+                                <Label text="P x Q" design="Bold"/>
+                                <m:template>
+                                    <Text text="{infoOrdine>pxq}" wrapping="false" />
+                                </m:template>
+                            </m:Column>
+
+                            <m:Column id="sconto">
+                                <Label text="Sconto" design="Bold"/>
+                                <m:template>
+                                    <Text text="{infoOrdine>sconto}" wrapping="false" />
+                                </m:template>
+                            </m:Column>
+
+                            <m:Column id="iva">
+                                <Label text="Iva" design="Bold"/>
+                                <m:template>
+                                    <Text text="{infoOrdine>iva}" wrapping="false" />
+                                </m:template>
+                            </m:Column>
+
+                            <m:Column id="totale">
+                                <Label text="Totale" design="Bold"/>
+                                <m:template>
+                                    <Text text="{infoOrdine>totale}" wrapping="false" />
+                                </m:template>
+                            </m:Column>
+                        </m:columns>
+                    </m:Table>
+                </IconTabFilter>
+                <IconTabFilter icon="sap-icon://wallet">
+                    <Label text="Dati di pagamento" design="Bold"/>
+                    <f:SimpleForm
+                        id="formpag"
+                        editable="false"
+                        layout="ResponsiveGridLayout"
+                        labelSpanXL="3"
+                        labelSpanL="3"
+                        labelSpanM="3"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="4"
+                        emptySpanL="4"
+                        emptySpanM="4"
+                        emptySpanS="0"
+                        columnsXL="1"
+                        columnsL="1"
+                        columnsM="1"
+                        singleContainerFullSize="false">
+                        <f:content>
+                            <Label text="Paese" design="Bold"/>
+                            <Text id="paese" text="Italia" />
+                            <Label text="Tipo di carta" design="Bold"/>
+                            <Text id="tipoCarta" text="VISA" />
+                            <Label text="Numero carta" design="Bold" />
+                            <Text id="numeroCarta" text="3677899033" />
+                            <Label text="Intestatario" design="Bold" />
+                            <Text id="intestatario" text="Mario Rossi" />
+                            <Label text="Indirizzo di fatturazione" design="Bold"/>
+                            <Text id="indirizzoFatturazione" text="via Roma 13" />
+                            <Label text="Indirizzo destinatario" design="Bold" />
+                            <Text id="indirizzoDestinatario" text="via Roma 13" />
+                        </f:content>
+                    </f:SimpleForm>
+                </IconTabFilter>
+                <IconTabFilter icon="sap-icon://notes" iconColor="Positive">
+                    <TextArea valueState="None" id="notecliente" value="Far recapitare un giorno prima" rows="6" width="100%" maxLength="60" editable="false" />
+                </IconTabFilter>
+            </items>
+        </IconTabBar>
+        <endButton>
+            <Button text="Chiudi" press="onCloseDialog" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

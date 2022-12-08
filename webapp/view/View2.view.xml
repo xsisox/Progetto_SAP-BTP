@@ -1,0 +1,61 @@
+<mvc:View controllerName="project6.project6.controller.View2" displayBlock="true" xmlns="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns:c="sap.ui.core" xmlns:m="sap.m" height="100%">
+    <m:Page id="page" showHeader="true" enableScrolling="false" class="sapUiContentPadding" title="Lista Ordini">
+        <m:content>
+            <Table id="table" selectionMode="None" rows="{path:'listaOrdini>/'}" visibleRowCount="20" sort="sortDeliveryDate" ariaLabelledBy="title" alternateRowColors="true" width="100%">
+                <columns>
+                    <Column id="nordine" width="11rem" sortProperty="nordine">
+                        <m:Label text="N° Ordine" design="Bold"/>
+                        <template>
+                            <m:Text text="{listaOrdini>nordine}" wrapping="false" />
+                        </template>
+                    </Column>
+                    <Column id="quantita" width="11rem" sortProperty="quantita">
+                        <m:Label text="Quantità" design="Bold" />
+                        <template>
+                            <m:Text text="{listaOrdini>quantità}" wrapping="false" />
+                        </template>
+                    </Column>
+                    <Column id="importo" width="11rem" sortProperty="importo">
+                        <m:Label text="Importo" design="Bold" />
+                        <template>
+                            <m:Text text="{listaOrdini>importo}" wrapping="false" />
+                        </template>
+                    </Column>
+
+                    <Column id="dataOrdine" width="11rem" sortProperty="dataOrdine">
+                        <m:Label text="{listaOrdini>dataOrdine}" design="Bold" />
+                        <template>
+                            <m:Text text="" wrapping="false" />
+                        </template>
+                    </Column>
+                    <Column id="stato" width="11rem" sortProperty="stato">
+                        <m:Label text="{listaOrdini>stato}" design="Bold" />
+                        <template>
+                            <m:ObjectStatus text="{listaOrdini>stato}" state="{listaClienti>state}" inverted="true" />
+                            <!-- <m:Text text="{listaClienti>stato}" wrapping="false" /> -->
+                        </template>
+                    </Column>
+                    <Column id="buttonstampa" width="5rem">
+                        <m:Label text="" />
+                        <template>
+                            <m:Button icon="sap-icon://pdf-attachment" id="stampa" type="Reject" text="" press="onStampa" />
+                        </template>
+                    </Column>
+                    <Column id="buttontracking">
+                        <m:Label text="" />
+                        <template>
+                            <!-- <m:Link text="Traccia ordine" target="_blank" href="https://services.brt.it/it/tracking" /> -->
+                            <m:Button icon="sap-icon://shipping-status" id="tracking" press="onTracking"/>
+                        </template>
+                    </Column>
+                    <Column id="buttondettagli" width="5rem">
+                        <m:Label text="" />
+                        <template>
+                            <m:Button icon="sap-icon://detail-view" id="dettagli" press="onDettagli" />
+                        </template>
+                    </Column>
+                </columns>
+            </Table>
+        </m:content>
+    </m:Page>
+</mvc:View>
